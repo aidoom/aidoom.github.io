@@ -1,0 +1,13 @@
+# Site settings
+title: Algo Engineering
+email: your-email@domain.com
+username: aidoo
+github_username: aidoom
+linkedin_pub_url: pub/aidan-o-mahony/19/59/14a
+description: "Musings on research, design and implementation of algorithmic trading systems using Python and Linux"
+baseurl: ""
+url: "http://aidoom.github.io"
+
+# Build settings
+markdown: kramdown
+permalink: pretty
