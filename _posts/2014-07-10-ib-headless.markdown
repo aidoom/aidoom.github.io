@@ -65,5 +65,3 @@ check process ib-api-edemo matching 'xvfb.*java.*edemo.ini'
 {% endhighlight %}
 
 Now, restart monit and point your browser to `localhost:2812` and you should see the `ib-api-edemo` process.
-
-{% include disqus.html %}
