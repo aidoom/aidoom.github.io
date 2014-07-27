@@ -1,11 +1,12 @@
 ---
 layout: post
-title:  "Headless execution of IB Gateway on Ubuntu Server"
-date:   2014-07-10 13:25:08
-categories: linux
+title:  Headless execution of IB Gateway on Ubuntu Server
+tags:   blogging
 ---
 
 I have a headless machine running [Ubuntu Server](http://www.ubuntu.com/server) that is up 24/7 and would like to use it to run our algo trading system. If you're reading this, then you're probably aware that running the IB Gateway is not possible in Linux without an X server to handle the GUI. A possible workaround is to use X forwarding over SSH but if your network connection is interrupted it will kill IB Gateway and have to be restarted manually. So, what we need is a way to run IB Gateway without the GUI, the ability to start/stop it as a service and a method to monitor it's status.
+
+{{ more }}
 
 After some googling, I found the [IBController](https://github.com/ib-controller/ib-controller) project on github, which provides hands-free operation of IB Gateway. It completes the login dialog automatically with credentials from a `.ini` file and allows IB Gateway to be launched from a script. The [IBController userguide](https://github.com/ib-controller/ib-controller/blob/master/userguide.md) suggests that [headless execution](https://github.com/ib-controller/ib-controller/blob/master/userguide.md#headless-execution-unix) can be achieved by sending the display to a virtual framebuffer. For Arch Linux, a [package](https://aur.archlinux.org/packages/ib-controller/) has been created using IBController that manages headless IB Gateway instances. The source for this package is availbe in the [IBController AUR](https://github.com/benalexau/ibcontroller-aur) repository. It also shows how to use [monit](http://mmonit.com/) to monitor the status of the IB Gateway instances.
 

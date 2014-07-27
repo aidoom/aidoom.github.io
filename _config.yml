@@ -1,13 +1,17 @@
-# Site settings
-title: The Algo Engineer
-email: your-email@domain.com
-username: aidoo
-github_username: aidoom
-linkedin_pub_url: pub/aidan-o-mahony/19/59/14a
-description: "Musings on research, design and implementation of algorithmic trading systems using Python and Linux"
-baseurl: ""
-url: "http://aidoom.github.io"
+name:   'The Algo Engineer'
+url:    'http://thealgoengineer.com'
+author: "Aidan O'Mahony"
 
-# Build settings
-markdown: kramdown
-permalink: pretty
+include:  ['_pages']
+
+paginate:      10
+paginate_path: '/blog/page:num/'
+permalink:     '/blog/:year/:title/'
+relative_permalinks: false
+
+excerpt_separator: "{{ more }}"
+
+safe:     true
+pygments: false
+markdown: 'kramdown'
+timezone: 'Australia/Sydney'

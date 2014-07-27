@@ -1,17 +1,20 @@
 ---
 layout: default
+blogfeed: true
 ---
-<div class="post">
+{% capture readtime %}{{ page.content | number_of_words | plus:91 | divided_by:180 }}{% endcapture %}
 
-  <header class="post-header">
-    <h1>{{ page.title }}</h1>
-    <p class="meta">{{ page.date | date: "%b %-d, %Y" }}{% if page.author %} • {{ page.author }}{% endif %}{% if page.meta %} • {{ page.meta }}{% endif %}</p>
-  </header>
+<h1 class="post-title">{{ page.title }}</h1>
+<p class="post-meta">
+	{{ page.date | date_to_string }} &bull;
+	{% if readtime == '0' %} &lt; 1{% else %}{{ readtime }}{% endif %} min. read &bull;
+	<a href="#disqus_thread" data-disqus-identifier="{{ page.path | split:'/' | last | cgi_escape }}">Comments</a>
+</p>
 
-  <article class="post-content">
-  {{ content }}
-  </article>
+{{ content }}
 
-</div>
+<hr />
 
-{% include disqus.html %}
+{% if post.comments != false %}
+<div id="disqus_thread"></div>
+{% endif %}

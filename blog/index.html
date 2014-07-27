@@ -1,0 +1,39 @@
+---
+layout:    default
+title:     The Algo Engineer
+blogfeed:  true
+---
+
+<h1>Blog Posts</h1>
+<hr />
+
+<div class="articles">
+{% for post in paginator.posts %}{% capture readtime %}{{ post.content | number_of_words | plus:91 | divided_by:180 }}{% endcapture %}
+	<h2 class="post-title"><a href="{{ post.url }}">{{ post.title }}</a></h2>
+	<p class="post-meta">
+		{{ post.date | date_to_string }} &bull;
+		{% if readtime == '0' %} &lt; 1{% else %}{{ readtime }}{% endif %} min. read &bull;
+		<a href="{{ post.url }}#disqus_thread" data-disqus-identifier="{{ post.path | split:'/' | last | cgi_escape }}">Comments</a>
+	</p>
+
+	<p class="post-excerpt">{{ post.excerpt | strip_html }} [<a href="{{ post.url }}">read more</a>]</p>
+	
+{% endfor %}
+</div>
+
+{% if paginator.total_pages > 1 %}
+<div class="pagination">
+	<ul>
+{% if paginator.previous_page %}
+		<li class="prev"><a href="/blog/{% if paginator.previous_page != 1 %}page{{ paginator.previous_page }}{% endif %}">Previous</a></li>
+{% endif %}
+		<li><a {% if paginator.page == 1 %}class="active" {% endif %}href="/blog/">1</a></li>
+{% for count in (2..paginator.total_pages) %}
+		<li><a {% if paginator.page == count %}class="active" {% endif %}href="/blog/page{{ count }}">{{ count }}</a></li>
+{% endfor %}
+{% if paginator.next_page %}
+		<li class="next"><a href="/blog/page{{ paginator.next_page }}">Next</a></li>
+{% endif %}
+	</ul>
+</div>
+{% endif %}
