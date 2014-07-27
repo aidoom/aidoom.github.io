@@ -5,7 +5,7 @@ You can view this website at [thealgoengineer.com](http://thealgoengineer.com/)
 ## License
 
 This work is copyright © Aidan O'Mahony.  All rights reserved.  
-"[PixelCog](http://github.com/pixelcog/pixelcog.github.io)"is copyright © PixelCog Inc."[Minimal](https://github.com/orderedlist/minimal)" theme copyright © [Steve Smith](http://orderedlist.com/) and licenced under [Creative Commons Attribution-ShareAlike 3.0 Unported License](http://creativecommons.org/licenses/by-sa/3.0/)
+"[PixelCog](http://github.com/pixelcog/pixelcog.github.io)" theme is copyright © PixelCog Inc."[Minimal](https://github.com/orderedlist/minimal)" theme copyright © [Steve Smith](http://orderedlist.com/) and licenced under [Creative Commons Attribution-ShareAlike 3.0 Unported License](http://creativecommons.org/licenses/by-sa/3.0/)
 
 Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
 
