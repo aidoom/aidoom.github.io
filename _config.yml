@@ -5,8 +5,8 @@ author: "Aidan O'Mahony"
 include:  ['_pages']
 
 paginate:      10
-paginate_path: '/blog/page:num/'
-permalink:     '/blog/:year/:title/'
+paginate_path: '/page:num/'
+permalink:     '/:year/:title/'
 relative_permalinks: false
 
 excerpt_separator: "{{ more }}"

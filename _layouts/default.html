@@ -7,7 +7,7 @@
 		
 		<link rel="canonical" href="{{ site.url }}{{ page.url }}" />
 {% if page.blogfeed %}
-		<link rel="alternate" type="application/atom+xml" title="{{ site.name }} — Feed" href="{{ site.url }}/blog/feed.atom" />
+		<link rel="alternate" type="application/atom+xml" title="{{ site.name }} — Feed" href="{{ site.url }}/feed.atom" />
 {% endif %}
 		<link rel="stylesheet" href="/css/main.css" />
 		<link rel="stylesheet" href="/css/syntax.css" />
@@ -22,7 +22,7 @@
 				<h1><a href="/"><img src="/img/thealgoengineer-logo.png" alt="{{ site.name }}" width="300" /></a></h1>
 				<nav><ul>
 					<li><a {% if location == 'about' %}class="active" {% endif %}href="/about/">About</a></li>
-					<li><a {% if location == 'blog' %}class="active" {% endif %}href="/blog/">Blog</a></li>
+					<li><a {% if location != 'about' %}{% if location != 'contact' %}class="active" {% endif %}{% endif %}href="/">Blog</a></li>
 					<li><a {% if location == 'contact' %}class="active" {% endif %}href="/contact/">Contact</a></li>
 				</ul></nav>
 			</header>

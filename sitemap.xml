@@ -11,7 +11,7 @@
 		<priority>1.0</priority>
 	</url>
 	<url>
-		<loc>{{ site.url }}/blog/</loc>
+		<loc>{{ site.url }}/</loc>
 		<lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
 		<changefreq>daily</changefreq>
 		<priority>1.0</priority>
@@ -28,7 +28,7 @@
 	<!-- Pages -->{% for node in site.pages %}{% comment %}
 	{% endcomment %}{% capture path %}{{ node.path | split:'/' | first }}{% endcapture %}{% comment %}
 	{% endcomment %}{% capture url %}{{ node.url | remove_first:'/' | remove: 'index.html' | split:'/' | first }}{% endcapture %}{% comment %}
-	{% endcomment %}{% if path == '_pages' and node.noindex != true and url != '' and url != 'blog' %}
+	{% endcomment %}{% if path == '_pages' and node.noindex != true and url != '' and url != '/' %}
 	<url>
 		<loc>{{ site.url }}{{ node.url }}</loc>
 		<lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
