@@ -5,6 +5,8 @@ title: Downloading S&P 500 tickers and data using Python
 
 Finding and dowloading a list of current S&P 500 companies and their respective price data can be tedious at best. Luckily for you, today I'm going to share with you a Python script that I use to construct a database of daily bar data for the current S&P 500 companies.
 
+{{ more }}
+
 The script works as follows:
 
 - scrape S&P 500 ticker list and industry sectors from [list of S&P 500 companies](https://en.wikipedia.org/wiki/List_of_S%26P_500_companies) on Wikipedia.
