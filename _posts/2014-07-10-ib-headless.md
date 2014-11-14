@@ -10,7 +10,7 @@ I have a headless machine running [Ubuntu Server](http://www.ubuntu.com/server) 
 
 After some googling, I found the [IBController](https://github.com/ib-controller/ib-controller) project on github, which provides hands-free operation of IB Gateway. It completes the login dialog automatically with credentials from a `.ini` file and allows IB Gateway to be launched from a script. The [IBController userguide](https://github.com/ib-controller/ib-controller/blob/master/userguide.md) suggests that [headless execution](https://github.com/ib-controller/ib-controller/blob/master/userguide.md#headless-execution-unix) can be achieved by sending the display to a virtual framebuffer. For Arch Linux, a [package](https://aur.archlinux.org/packages/ib-controller/) has been created using IBController that manages headless IB Gateway instances. The source for this package is availbe in the [IBController AUR](https://github.com/benalexau/ibcontroller-aur) repository. It also shows how to use [monit](http://mmonit.com/) to monitor the status of the IB Gateway instances.
 
-Following the methodology of the [IBController AUR](https://github.com/benalexau/ibcontroller-aur) project, I created an [IBController init script](https://gist.github.com/aidoom/72972af41470eebca743) for Ubuntu to start/stop instances of the IB Gateway. You will need to install the virtual frame buffer, xvfb, which is available via apt. I couldn't find a nice solution for capturing the PID of the java process that's started using `xvfb-run` so I resorted to this hacky solution for stopping the service:
+Following the methodology of the [IBController AUR](https://github.com/benalexau/ibcontroller-aur) project, I created an [IBController init script](https://gist.github.com/aidoom/72972af41470eebca743) for Ubuntu to start/stop instances of the IB Gateway. The init script should be copied to `/etc/init.d` so the IBController service can be started using the `sudo service ibcontroller start` command. You will need to install the virtual frame buffer, xvfb, which is available via apt. I couldn't find a nice solution for capturing the PID of the java process that's started using `xvfb-run` so I resorted to this hacky solution for stopping the service:
 {% highlight bash %}
 pgrep -f "(${JAR}.*${INI}.ini)" | xargs kill -9
 {% endhighlight %}
@@ -55,8 +55,8 @@ set mailserver mail.someisp.com
 set alert you@you.com not on { instance, action }
 
 check process ib-api-edemo matching 'xvfb.*java.*edemo.ini'
-  start program = "/usr/sbin/systemctl start ibcontroller@fdemo.service"
-  stop program = "/usr/sbin/systemctl stop ibcontroller@fdemo.service"
+  start program = "/usr/sbin/service ibcontroller start"
+  stop program =  "/usr/sbin/service ibcontroller stop"
   if failed host 127.0.0.1 port 4003
     send "63\0x0071\0x001\0x005556\0x00" # clientVer\startAPI\startApiVer\5556
     expect "[0-9]{2,}"                   # serverVer reply
