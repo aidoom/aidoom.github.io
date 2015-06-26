@@ -14,4 +14,4 @@ The Algo Engineer is a blog by  **Dr. Aidan O'Mahony** about research, design an
 
 My background is in Mechanical Engineering and I completed my Ph.D. in [Computational Fluid Dynamics](http://en.wikipedia.org/wiki/Computational_fluid_dynamics). Over the past few years, I've become interested in algorithmic trading and I'm currently developing and deploying my own trading system and algorithms written in Python.
 
-[Contatct me](/contact/) if you would like to get in touch or send comments or suggestions!
+[Contact me](/contact/) if you would like to get in touch or send comments or suggestions!
